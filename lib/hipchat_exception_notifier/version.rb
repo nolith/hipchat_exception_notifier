@@ -1,3 +1,3 @@
-module HipchatExceptionNotifier
-  VERSION = "0.0.1"
+class HipchatExceptionNotifier
+  VERSION = "0.0.2"
 end
