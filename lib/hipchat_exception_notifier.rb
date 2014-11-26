@@ -30,7 +30,7 @@ class HipchatExceptionNotifier
   def deliver_exception(ex)
     client = HipChat::Client.new(hipchat_token, hipchat_options)
     client[hipchat_room_name].
-      send(hipchat_user, "Error: #{ex.message}", notify: hipchat_announce)
+      send(hipchat_user, "Error: #{ex.message}", notify: hipchat_announce, color: hipchat_color)
   end
 
   def hipchat_token
@@ -51,5 +51,9 @@ class HipchatExceptionNotifier
 
   def hipchat_options
     @options.fetch(:options) { Hash.new }
+  end
+
+  def hipchat_color
+    @options.fetch(:color) { 'yellow' }
   end
 end
